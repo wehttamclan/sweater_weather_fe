@@ -1,1 +1,50 @@
+body {
+  margin: 0;
+}
 
+nav {
+  height: 50px;
+  color: #ed458b;
+  background-color: #404041;
+  position: fixed;
+  width: 100%;
+}
+
+nav span {
+  float: left;
+  padding: 10px;
+}
+
+nav a {
+  color: #ed458b;
+}
+
+nav input {
+  border-radius: 60px;
+  width: 200px;
+  height: 20px;
+  text-align: center;  
+}
+
+nav input::placeholder {
+  color: aqua;
+}
+
+nav button {
+  color: #404041;
+}
+
+.account-links {
+  float: right;
+  padding: 13px;
+}
+
+.nav-links {
+  text-align: center;
+  font-size: 16pt;
+}
+
+#logo {
+  font-family: 'Sedgwick Ave';
+  padding-right: 13px;
+}
