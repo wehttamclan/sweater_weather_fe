@@ -4,7 +4,7 @@ body {
 
 nav {
   height: 50px;
-  color: #ed458b;
+  color: #00ff2a;
   background-color: #404041;
   position: fixed;
   width: 100%;
@@ -16,18 +16,30 @@ nav span {
 }
 
 nav a {
-  color: #ed458b;
+  color: #00ff2a;
+}
+
+nav button {
+  display: inline-block;
+  vertical-align: top;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border-radius: 4px;
+  background-color: #e0e0e0;
+  margin-left: 10px;
 }
 
 nav input {
   border-radius: 60px;
-  width: 200px;
-  height: 20px;
+  width: 220px;
+  height: 25px;
   text-align: center;  
 }
 
 nav input::placeholder {
-  color: aqua;
+  color: #21638E;
+  font-size: 10pt;
 }
 
 nav button {
@@ -47,4 +59,10 @@ nav button {
 #logo {
   font-family: 'Sedgwick Ave';
   padding-right: 13px;
+}
+
+#search-btn {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
 }
