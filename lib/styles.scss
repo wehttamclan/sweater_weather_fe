@@ -1,18 +1,23 @@
 body {
   margin: 0;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 nav {
-  height: 50px;
+  height: 80px;
   color: #00ff2a;
   background-color: #404041;
   position: fixed;
   width: 100%;
+  opacity: 0.54;
 }
 
 nav span {
   float: left;
-  padding: 10px;
+  padding: 22px;
 }
 
 nav a {
@@ -22,19 +27,18 @@ nav a {
 nav button {
   display: inline-block;
   vertical-align: top;
-  width: 30px;
-  height: 30px;
-  text-align: center;
+  width: 32px;
+  height: 32px;
   border-radius: 4px;
   background-color: #e0e0e0;
-  margin-left: 10px;
+  margin: 4px;
 }
 
 nav input {
   border-radius: 60px;
-  width: 220px;
-  height: 25px;
-  text-align: center;  
+  width: 250px;
+  height: 25px; 
+  padding-left: 10px;
 }
 
 nav input::placeholder {
@@ -48,12 +52,12 @@ nav button {
 
 .account-links {
   float: right;
-  padding: 13px;
+  padding: 22px;
 }
 
 .nav-links {
   text-align: center;
-  font-size: 16pt;
+  font-size: 20pt;
 }
 
 #logo {
