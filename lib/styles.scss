@@ -9,10 +9,9 @@ body {
 nav {
   height: 80px;
   color: #00ff2a;
-  background-color: #404041;
-  position: fixed;
+  background-color: rgba(64, 64, 65, 0.54);
+  position: relative;
   width: 100%;
-  opacity: 0.54;
 }
 
 nav span {
@@ -66,7 +65,40 @@ nav button {
 }
 
 #search-btn {
-    display: inline-block;
-    height: 16px;
-    width: 16px;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+}
+
+.wrapper {
+  padding: 10px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 400px 400px;
+  background-color: rgba(255, 255, 255, 0);
+  color: #444;
+  position: absolute;
+	}
+
+.box {
+  background-color: #444;
+  color: #fff;
+  padding: 20px;
+  font-size: 150%;
+  background-color: rgba(64, 64, 65, 0.54);
+}
+
+.a {
+  grid-column: 1 / 3;
+  grid-row: 1;
+  background-color: rgba(0, 0, 0, 0);
+}
+.b {
+  grid-column: 1 ;
+  grid-row: 2;
+}
+
+.c {
+  grid-column: 2;
+  grid-row: 2;
 }
