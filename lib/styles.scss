@@ -108,7 +108,8 @@ nav button {
 .location {
   grid-column: 1 / 3;
   background-color: rgba(0, 0, 0, 0);
-  
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .b {
@@ -133,4 +134,9 @@ nav button {
 
 #current-temp {
   font-size: 50pt;
+}
+
+#city-name {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
 }
