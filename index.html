@@ -27,7 +27,7 @@
     </div>
     <div class="box current-weather">
       <div>
-        <img src="images/climacons-master/SVG/Cloud-Download.svg" alt=""><span id="current-summary"></span>
+        <img src="images/climacons-master/SVG/Cloud-Lightning-Moon.svg" alt=""><span id="current-summary"></span>
       </div>
       <div>
         <span id="current-temp"></span>
@@ -37,13 +37,13 @@
         <img src="images/climacons-master/SVG/Cloud-Download.svg" alt="low temperature"><span id="low-temp"></span>
       </div>
     </div>
-    <div class="box b">
+    <div class="box hourly">
       <h3>Hourly</h3>
       <hr>
       <div class="hour-item">
         <p>
           <span>10:00 AM</span>
-          <img src="images/climacons-master/SVG/Thermometer-75.svg" alt=""><span>70º F</span>
+          <img src="images/climacons-master/SVG/Thermometer-75.svg" alt=""><span id="hourly-temp">70º F</span>
           <img src="images/climacons-master/SVG/Cloud-Drizzle.svg" alt=""><span>10%</span>
         </p>
       </div>
@@ -90,8 +90,9 @@
       
       </div>
     </div>
+    <canvas id="hourly-chart"></canvas>
   </div>
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="main.bundle.js"></script>
   <script src="./lib/index.js" type="application/javascript"></script>
 </body>
