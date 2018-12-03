@@ -76,6 +76,7 @@
 	    displayCurrentSummary(data);
 	    displayCurrentDetails(data);
 	    displayTodaySummary(data);
+	    graphHourlyForecast(data);
 	  } else {
 	    console.log('error');
 	  };
@@ -128,6 +129,61 @@
 
 	request.send();
 
+	function graphHourlyForecast(rawData) {
+	  var ctx = document.getElementById('hourly-chart').getContext('2d');
+	  Chart.defaults.global.defaultFontColor = 'white';
+	  Chart.defaults.global.defaultColor = 'white';
+	  var hourlyData = rawData.hourly.data;
+	  var chart = new Chart(ctx, {
+	    // The type of chart we want to create
+	    type: 'line',
+
+	    // The data for our dataset
+	    data: {
+	      labels: hourlyData.map(getTime),
+	      datasets: [{
+	        label: "Hourly Forecast",
+	        borderColor: 'rgb(255, 99, 132)',
+	        data: hourlyData.map(getTemperature)
+	      }]
+	    },
+
+	    // Configuration options go here
+	    options: {
+	      scales: {
+	        yAxes: [{
+	          ticks: {
+	            suggestedMin: getMinRange(hourlyData),
+	            suggestedMax: getMaxRange(hourlyData)
+	          }
+	        }]
+	      }
+	    }
+	  });
+	};
+
+	function getTime(item, index) {
+	  if (index % 2 === 0) {
+	    return item.time;
+	  } else return "";
+	};
+
+	function getTemperature(item) {
+	  return item.temperature;
+	};
+
+	function getMinRange(array) {
+	  return Math.min.apply(Math, array.map(function (o) {
+	    return o.temperature;
+	  })) - 5;
+	};
+
+	function getMaxRange(array) {
+	  return Math.max.apply(Math, array.map(function (o) {
+	    return o.temperature;
+	  })) + 5;
+	};
+
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -163,7 +219,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  margin: 0;\n  background-position: center;\n  background-attachment: fixed;\n  background-size: cover;\n  background-repeat: no-repeat; }\n\nnav {\n  height: 80px;\n  color: #00ff2a;\n  background-color: rgba(64, 64, 65, 0.54);\n  position: relative;\n  width: 100%; }\n\nnav span {\n  float: left;\n  padding: 22px; }\n\nnav a {\n  color: #00ff2a; }\n\nnav button {\n  display: inline-block;\n  vertical-align: top;\n  width: 32px;\n  height: 32px;\n  border-radius: 4px;\n  background-color: #e0e0e0;\n  margin: 4px; }\n\nnav input {\n  border-radius: 60px;\n  width: 250px;\n  height: 25px;\n  padding-left: 10px; }\n\nnav input::placeholder {\n  color: #21638E;\n  font-size: 10pt; }\n\nnav button {\n  color: #404041; }\n\n.account-links {\n  float: right;\n  padding: 22px; }\n\n.nav-links {\n  text-align: center;\n  font-size: 20pt; }\n\n#logo {\n  font-family: 'Sedgwick Ave';\n  padding-right: 13px; }\n\n#search-btn {\n  display: inline-block;\n  height: 16px;\n  width: 16px; }\n\n.wrapper {\n  padding: 10px;\n  display: grid;\n  grid-gap: 10px;\n  grid-template-columns: auto 1fr;\n  background-color: rgba(255, 255, 255, 0);\n  color: #444;\n  position: absolute; }\n\n.box {\n  background-color: #444;\n  color: #fff;\n  padding: 20px;\n  font-size: 150%;\n  background-color: rgba(64, 64, 65, 0.54); }\n\n.current-weather {\n  grid-column: 1 / 3;\n  background-color: rgba(0, 0, 0, 0); }\n\n.current-weather img {\n  margin: -33px;\n  padding: 0px 10px; }\n\n.hour-item img {\n  margin: -42px;\n  margin-left: -14px;\n  margin-right: -39px;\n  padding: 0px 10px; }\n\n.location {\n  grid-column: 1 / 3;\n  background-color: rgba(0, 0, 0, 0);\n  padding-top: 0px; }\n\n.b {\n  grid-column: 1; }\n\n.currently {\n  grid-column: 2; }\n\n.current-details {\n  display: grid;\n  grid-template-columns: auto 1fr; }\n\n#current-icon {\n  text-align: center; }\n\n.helper {\n  display: inline-block;\n  height: 100%;\n  vertical-align: middle; }\n\n#current-icon img {\n  vertical-align: middle; }\n\n.d {\n  grid-column: 1 / -1; }\n\n.box h3 {\n  margin: 0px; }\n\n.box p {\n  margin: 0px; }\n\n#current-temp {\n  font-size: 50pt; }\n\n#city-name {\n  margin-block-start: 0.5em;\n  margin-block-end: 0.5em; }\n\n#current-list {\n  list-style-type: none; }\n\n#summaries {\n  grid-column: 1 / 3;\n  max-width: 440px; }\n\n#summaries p {\n  margin-top: 10px;\n  margin-bottom: 10px; }\n\n.current-item {\n  width: 300px; }\n\n.start {\n  float: left; }\n\n.end {\n  float: right; }\n", ""]);
+	exports.push([module.id, "body {\n  margin: 0;\n  background-position: center;\n  background-attachment: fixed;\n  background-size: cover;\n  background-repeat: no-repeat;\n  font-family: 'Anaheim'; }\n\nnav {\n  height: 80px;\n  color: #00ff2a;\n  background-color: rgba(0, 0, 0, 0.54);\n  position: relative;\n  width: 100%; }\n\nnav span {\n  float: left;\n  padding: 22px; }\n\nnav a {\n  color: #00ff2a; }\n\nnav button {\n  display: inline-block;\n  vertical-align: top;\n  width: 32px;\n  height: 32px;\n  border-radius: 4px;\n  background-color: #e0e0e0;\n  margin: 4px; }\n\nnav input {\n  border-radius: 60px;\n  width: 250px;\n  height: 25px;\n  padding-left: 10px; }\n\nnav input::placeholder {\n  color: #21638E;\n  font-size: 10pt; }\n\nnav button {\n  color: #404041; }\n\n.account-links {\n  float: right;\n  padding: 22px; }\n\n.nav-links {\n  text-align: center;\n  font-size: 20pt; }\n\n#logo {\n  font-family: 'Sedgwick Ave';\n  padding-right: 13px; }\n\n#search-btn {\n  display: inline-block;\n  height: 16px;\n  width: 16px; }\n\n.wrapper {\n  padding: 10px;\n  display: grid;\n  grid-gap: 10px;\n  grid-template-columns: auto 1fr;\n  background-color: rgba(255, 255, 255, 0);\n  color: #444;\n  position: absolute; }\n\n.box {\n  background-color: #444;\n  color: #fff;\n  padding: 20px;\n  font-size: 150%;\n  background-color: rgba(0, 0, 0, 0.54); }\n\n.current-weather {\n  grid-column: 1 / 3;\n  background-color: rgba(0, 0, 0, 0); }\n\n.current-weather img {\n  margin: -33px;\n  padding: 0px 10px; }\n\n.hour-item img {\n  margin: -42px;\n  margin-left: -14px;\n  margin-right: -39px;\n  padding: 0px 10px; }\n\n.location {\n  grid-column: 1 / 3;\n  background-color: rgba(0, 0, 0, 0);\n  padding-top: 0px; }\n\n.hourly {\n  grid-column: 1; }\n\n.currently {\n  grid-column: 2; }\n\n.current-details {\n  display: grid;\n  grid-template-columns: auto 1fr; }\n\n#current-icon {\n  text-align: center; }\n\n.helper {\n  display: inline-block;\n  height: 100%;\n  vertical-align: middle; }\n\n#current-icon img {\n  vertical-align: middle; }\n\n.d {\n  grid-column: 1 / -1; }\n\n.box h3 {\n  margin: 0px; }\n\n.box p {\n  margin: 0px; }\n\n#current-temp {\n  font-size: 50pt; }\n\n#city-name {\n  margin-block-start: 0.5em;\n  margin-block-end: 0.5em; }\n\n#current-list {\n  list-style-type: none; }\n\n#summaries {\n  grid-column: 1 / 3;\n  max-width: 440px; }\n\n#summaries p {\n  margin-top: 10px;\n  margin-bottom: 10px; }\n\n.current-item {\n  width: 300px;\n  margin-block-start: -10px;\n  margin-block-end: -20px; }\n\n.start {\n  float: left; }\n\n.end {\n  float: right; }\n\n#hourly-chart {\n  grid-column: 1 / 3;\n  background-color: rgba(0, 0, 0, 0.54); }\n", ""]);
 
 	// exports
 
