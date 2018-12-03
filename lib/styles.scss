@@ -4,6 +4,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
+  font-family: 'Anaheim';
 }
 
 nav {
@@ -175,6 +176,8 @@ nav button {
 
 .current-item {
   width: 300px;
+  margin-block-start: -10px;
+  margin-block-end: -20px;
 }
 
 .start {
