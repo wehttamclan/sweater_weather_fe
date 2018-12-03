@@ -115,8 +115,27 @@ nav button {
   grid-column: 1 ;
 }
 
-.c {
+.currently {
   grid-column: 2;
+}
+
+.current-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#current-icon {
+  text-align: center;
+}
+
+.helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+#current-icon img {
+  vertical-align: middle;
 }
 
 .d {
@@ -138,4 +157,16 @@ nav button {
 #city-name {
   margin-block-start: 0.5em;
   margin-block-end: 0.5em;
+}
+
+#current-list {
+  list-style-type: none;
+}
+
+.start {
+  display: block;
+}
+
+.current-item {
+  width: 500px;
 }
